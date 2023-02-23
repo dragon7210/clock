@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [time, setTime] = useState(String);
+  const [time, setTime] = useState<string>("");
 
   useEffect(() => {
     setInterval(() => updateClick(), 1000);
