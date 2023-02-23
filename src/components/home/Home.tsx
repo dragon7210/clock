@@ -1,18 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
 const Home = () => {
   const [time, setTime] = useState<string>("");
+  const [count, setCount] = useState<number>(0);
+  const ref = useRef(0);
+  ref.current = count;
 
   useEffect(() => {
-    setInterval(() => updateClick(), 1000);
+    setInterval(updateTime, 1000);
   }, []);
 
-  const updateClick = () => {
+  const updateTime = () => {
     setTime(new Date().toLocaleTimeString());
+    setCount(ref.current + 1);
   };
+
   return (
     <div className="flex justify-center">
       <p className="text-[40px] text-[green] font-extrabold">{time}</p>
+      <p className="text-[40px] text-[green] font-extrabold">{count}</p>
     </div>
   );
 };
