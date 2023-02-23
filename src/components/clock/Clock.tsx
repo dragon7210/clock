@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import ClockType from "../clockType";
+import ClockType from "../numberType";
 
 const Home = () => {
   const [sec, setSec] = useState<number>(0);
