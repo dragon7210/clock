@@ -43,13 +43,18 @@ const Home = () => {
   const onChange = (e: any) => {
     setRemain(e.target.value);
   };
-
+  const refresh = () => {
+    setCount(0);
+    setStartStatus(false);
+    setRemain(0);
+  };
   return (
-    <div>
-      <div className="flex justify-center mt-5">
+    <div className="w-[330px] mx-auto">
+      <div className="flex justify-between mt-12">
         <input
-          className="border-[2px] rounded-lg mr-2 px-4"
+          className="border-[2px] rounded-lg px-4"
           onChange={(e) => onChange(e)}
+          value={!startStatus ? remain : ""}
           type="number"
         />
         {startStatus ? (
@@ -63,11 +68,23 @@ const Home = () => {
         )}
       </div>
 
-      <div className="flex justify-center">
-        <ClockType value={hour} />
-        <ClockType value={min} />
-        <ClockType value={sec} />
-        {startStatus && remain !== 0 && <ClockType value={remain} />}
+      <div className="flex justify-center mt-3">
+        <ClockType value={hour} color="black" />
+        <ClockType value={min} color="black" />
+        <ClockType value={sec} color="black" />
+        <ClockType
+          value={startStatus || remain !== 0 ? remain : 0}
+          color="red"
+        />
+      </div>
+
+      <div className="mt-3">
+        <button
+          className="bg-[#158000] w-full py-2 rounded-md text-white"
+          onClick={refresh}
+        >
+          Refresh
+        </button>
       </div>
     </div>
   );
