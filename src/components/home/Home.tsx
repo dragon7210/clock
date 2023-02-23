@@ -39,7 +39,6 @@ const Home = () => {
       setCount(0);
     }
   }, [startStatus, refRemain, remain]);
-
   const onChange = (e: any) => {
     setRemain(e.target.value);
   };
@@ -68,7 +67,7 @@ const Home = () => {
           {hour}:{min}:{sec}
         </p>
         <p className="text-[40px] text-[green] font-extrabold ml-[20px]">
-          {remain && remain}
+          {startStatus && remain !== 0 && remain}
         </p>
       </div>
     </div>
