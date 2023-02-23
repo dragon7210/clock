@@ -1,9 +1,10 @@
 import { useEffect, useState, useRef } from "react";
+import ClockType from "../clockType";
 
 const Home = () => {
-  const [sec, setSec] = useState<number>();
-  const [min, setMin] = useState<number>();
-  const [hour, setHour] = useState<number>();
+  const [sec, setSec] = useState<number>(0);
+  const [min, setMin] = useState<number>(0);
+  const [hour, setHour] = useState<number>(0);
   const [remain, setRemain] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
   const [startStatus, setStartStatus] = useState<Boolean>(false);
@@ -63,12 +64,10 @@ const Home = () => {
       </div>
 
       <div className="flex justify-center">
-        <p className="text-[40px] text-[green] font-extrabold ml-[20px]">
-          {hour}:{min}:{sec}
-        </p>
-        <p className="text-[40px] text-[green] font-extrabold ml-[20px]">
-          {startStatus && remain !== 0 && remain}
-        </p>
+        <ClockType value={hour} />
+        <ClockType value={min} />
+        <ClockType value={sec} />
+        {startStatus && remain !== 0 && <ClockType value={remain} />}
       </div>
     </div>
   );
