@@ -34,7 +34,12 @@ const Home = () => {
         clearInterval(timer);
       };
     }
+    if (remain === 0) {
+      setStartStatus(false);
+      setCount(0);
+    }
   }, [startStatus, refRemain, remain]);
+
   const onChange = (e: any) => {
     setRemain(e.target.value);
   };
@@ -47,9 +52,15 @@ const Home = () => {
           onChange={(e) => onChange(e)}
           type="number"
         />
-        <button className="bg-[red] rounded-lg px-6 py-2" onClick={start}>
-          <p className="text-white font-bold">Start</p>
-        </button>
+        {startStatus ? (
+          <button className="bg-[blue] rounded-lg px-6 py-2" onClick={start}>
+            <p className="text-white font-bold">Stop</p>
+          </button>
+        ) : (
+          <button className="bg-[red] rounded-lg px-6 py-2" onClick={start}>
+            <p className="text-white font-bold">Start</p>
+          </button>
+        )}
       </div>
 
       <div className="flex justify-center">
