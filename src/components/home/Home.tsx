@@ -9,7 +9,11 @@ const Home = () => {
   const updateClick = () => {
     setTime(new Date().toLocaleTimeString());
   };
-  return <div>{time}</div>;
+  return (
+    <div>
+      <p className="text-[40px]">{time}</p>
+    </div>
+  );
 };
 
 export default Home;
