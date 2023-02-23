@@ -1,5 +1,15 @@
+import { useEffect, useState } from "react";
+
 const Home = () => {
-  return <div></div>;
+  const [time, setTime] = useState(String);
+  useEffect(() => {
+    setInterval(() => updateClick(), 1000);
+  }, []);
+
+  const updateClick = () => {
+    setTime(new Date().toLocaleTimeString());
+  };
+  return <div>{time}</div>;
 };
 
 export default Home;
