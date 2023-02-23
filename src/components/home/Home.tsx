@@ -11,14 +11,14 @@ const Home = () => {
   }, []);
 
   const updateTime = () => {
-    setTime(new Date().toLocaleTimeString());
     setCount(ref.current + 1);
   };
-
+  console.log(count);
   return (
     <div className="flex justify-center">
-      <p className="text-[40px] text-[green] font-extrabold">{time}</p>
-      <p className="text-[40px] text-[green] font-extrabold">{count}</p>
+      <p className="text-[40px] text-[green] font-extrabold ml-[20px]">
+        {count}
+      </p>
     </div>
   );
 };
