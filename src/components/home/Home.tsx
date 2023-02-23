@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
   const [time, setTime] = useState(String);
+
   useEffect(() => {
     setInterval(() => updateClick(), 1000);
   }, []);
@@ -10,8 +11,8 @@ const Home = () => {
     setTime(new Date().toLocaleTimeString());
   };
   return (
-    <div>
-      <p className="text-[40px]">{time}</p>
+    <div className="flex justify-center">
+      <p className="text-[40px] text-[green] font-extrabold">{time}</p>
     </div>
   );
 };
