@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import ClockType from "../numberType";
+import NumberFormat from "../numberFormat";
 
 const Home = () => {
   const [sec, setSec] = useState<number>(0);
@@ -69,10 +69,10 @@ const Home = () => {
       </div>
 
       <div className="flex justify-center mt-3">
-        <ClockType value={hour} color="black" />
-        <ClockType value={min} color="black" />
-        <ClockType value={sec} color="black" />
-        <ClockType
+        <NumberFormat value={hour} color="black" />
+        <NumberFormat value={min} color="black" />
+        <NumberFormat value={sec} color="black" />
+        <NumberFormat
           value={startStatus || remain !== 0 ? remain : 0}
           color="red"
         />
