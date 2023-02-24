@@ -10,21 +10,26 @@ const TotalNumberFormat = ({ value }: Props) => {
     Format(value);
   }, [value]);
   const Format = (value: number) => {
-    if (value > 9999) {
-      setFormatValue(value.toString());
+    let newFormatValue = "";
+    switch (true) {
+      case value > 9999:
+        newFormatValue = value.toString();
+        break;
+      case 10000 > value && value > 999:
+        newFormatValue = "0" + value;
+        break;
+      case 1000 > value && value > 99:
+        newFormatValue = "00" + value;
+        break;
+      case 100 > value && value > 9:
+        newFormatValue = "000" + value;
+        break;
+      case 10 > value:
+        newFormatValue = "0000" + value;
+        break;
+      default:
     }
-    if (10000 > value && value > 999) {
-      setFormatValue("0" + value);
-    }
-    if (1000 > value && value > 99) {
-      setFormatValue("00" + value);
-    }
-    if (100 > value && value > 9) {
-      setFormatValue("000" + value);
-    }
-    if (10 > value) {
-      setFormatValue("0000" + value);
-    }
+    setFormatValue(newFormatValue);
   };
   return (
     <div className="text-[50px] font-extrabold">
