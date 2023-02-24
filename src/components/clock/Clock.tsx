@@ -80,7 +80,7 @@ const Home = () => {
 
       <div className="mt-3">
         <button
-          className="bg-[#158000] w-full py-2 rounded-md text-white"
+          className="bg-[#158000] w-full py-2 rounded-md text-white font-extrabold "
           onClick={refresh}
         >
           Refresh
