@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import NumberFormat from "../numberFormat";
-import TotalNumberFormat from "../totalNumberFormat";
+import NumberFormat from "../components/numberFormat";
+import TotalNumberFormat from "../components/totalNumberFormat";
 
 const Clock = () => {
   const [sec, setSec] = useState<number>(0);
