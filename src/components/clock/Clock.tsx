@@ -69,11 +69,11 @@ const Home = () => {
         />
         {startStatus ? (
           <button className="bg-[blue] rounded-lg px-8 py-4" onClick={start}>
-            <p className="text-white font-bold">STOP</p>
+            <p className="text-white font-bold text-[20px]">STOP</p>
           </button>
         ) : (
           <button className="bg-[red] rounded-lg px-8 py-4" onClick={start}>
-            <p className="text-white font-bold">START</p>
+            <p className="text-white font-bold text-[20px]">START</p>
           </button>
         )}
       </div>
@@ -89,7 +89,7 @@ const Home = () => {
 
       <div className="mt-5">
         <button
-          className="bg-[#158000] w-full py-4 rounded-md text-white font-bold "
+          className="bg-[#158000] w-full py-4 rounded-md text-white font-bold text-[20px]"
           onClick={refresh}
         >
           REFRESH
