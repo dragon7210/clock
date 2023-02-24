@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import NumberFormat from "../numberFormat";
 import TotalNumberFormat from "../totalNumberFormat";
 
-const Home = () => {
+const Clock = () => {
   const [sec, setSec] = useState<number>(0);
   const [min, setMin] = useState<number>(0);
   const [hour, setHour] = useState<number>(0);
@@ -99,4 +99,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Clock;
