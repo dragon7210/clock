@@ -80,7 +80,7 @@ const Home = () => {
         <p className="text-[50px] font-extrabold">
           <span className="text-[blue]">TOTAL</span>{" "}
           <span className="text-[black]">:</span>{" "}
-          <span className="text-[red]">{remain}</span>
+          <span className="text-[red] w-[160px]">{remain}</span>
         </p>
       </div>
       <div className="flex justify-between px-10">
