@@ -21,8 +21,8 @@ const Home = () => {
 
   useEffect(() => {
     setSec(count % 60);
-    setMin(Math.floor(count / 60));
-    setHour(Math.floor(count / 3600));
+    setMin(Math.floor(count / 60) % 60);
+    setHour(Math.floor(count / 3600) % 24);
   }, [count]);
 
   const start = () => {
