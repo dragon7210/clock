@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import NumberFormat from "../numberFormat";
+import TotalNumberFormat from "../totalNumberFormat";
 
 const Home = () => {
   const [sec, setSec] = useState<number>(0);
@@ -77,11 +78,7 @@ const Home = () => {
         )}
       </div>
       <div className="flex justify-center mt-3">
-        <p className="text-[50px] font-extrabold">
-          <span className="text-[blue]">TOTAL</span>{" "}
-          <span className="text-[black]">:</span>{" "}
-          <span className="text-[red] w-[160px]">{remain}</span>
-        </p>
+        <TotalNumberFormat value={remain} />
       </div>
       <div className="flex justify-between px-10">
         <NumberFormat value={hour} color="black" />
