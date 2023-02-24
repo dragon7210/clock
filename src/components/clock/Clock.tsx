@@ -49,26 +49,26 @@ const Home = () => {
     setRemain(0);
   };
   return (
-    <div className="w-[330px] mx-auto">
-      <div className="flex justify-between mt-12">
+    <div className="w-[420px] mx-auto">
+      <div className="flex justify-between mt-[150px]">
         <input
-          className="border-[2px] rounded-lg px-4 focus:outline-none"
+          className="border-[2px] rounded-lg px-4 focus:outline-none w-[300px]"
           onChange={(e) => onChange(e)}
           value={!startStatus ? remain : ""}
           type="number"
         />
         {startStatus ? (
-          <button className="bg-[blue] rounded-lg px-6 py-2" onClick={start}>
-            <p className="text-white font-bold">Stop</p>
+          <button className="bg-[blue] rounded-lg px-8 py-4" onClick={start}>
+            <p className="text-white font-bold">STOP</p>
           </button>
         ) : (
-          <button className="bg-[red] rounded-lg px-6 py-2" onClick={start}>
-            <p className="text-white font-bold">Start</p>
+          <button className="bg-[red] rounded-lg px-8 py-4" onClick={start}>
+            <p className="text-white font-bold">START</p>
           </button>
         )}
       </div>
 
-      <div className="flex justify-center mt-3">
+      <div className="flex justify-between mt-5">
         <NumberFormat value={hour} color="black" />
         <NumberFormat value={min} color="black" />
         <NumberFormat value={sec} color="black" />
@@ -78,12 +78,12 @@ const Home = () => {
         />
       </div>
 
-      <div className="mt-3">
+      <div className="mt-5">
         <button
-          className="bg-[#158000] w-full py-2 rounded-md text-white font-extrabold "
+          className="bg-[#158000] w-full py-4 rounded-md text-white font-bold "
           onClick={refresh}
         >
-          Refresh
+          REFRESH
         </button>
       </div>
     </div>
