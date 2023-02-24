@@ -52,7 +52,7 @@ const Home = () => {
     <div className="w-[330px] mx-auto">
       <div className="flex justify-between mt-12">
         <input
-          className="border-[2px] rounded-lg px-4"
+          className="border-[2px] rounded-lg px-4 focus:outline-none"
           onChange={(e) => onChange(e)}
           value={!startStatus ? remain : ""}
           type="number"
