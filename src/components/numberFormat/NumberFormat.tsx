@@ -8,7 +8,9 @@ const NumberFormat = ({ value, color }: Props) => {
     <p
       className={
         `text-[50px] font-extrabold w-[70px] caret-transparent ` +
-        (color === "red" ? "text-[red]" : "text-[black]")
+        ((color === "red" && "text-[red]") ||
+          (color === "blue" && "text-[blue]") ||
+          (color === "black" && "text-[black]"))
       }
     >
       {value > 9 ? value : "0" + value}

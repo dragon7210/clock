@@ -5,7 +5,7 @@ const Home = () => {
   const [sec, setSec] = useState<number>(0);
   const [min, setMin] = useState<number>(0);
   const [hour, setHour] = useState<number>(0);
-  const [remain, setRemain] = useState<number>(0);
+  const [remain, setRemain] = useState<number>(14800);
   const [count, setCount] = useState<number>(0);
   const [miliSec, setMiliSec] = useState<number>(0);
   const [startStatus, setStartStatus] = useState<Boolean>(false);
@@ -76,16 +76,18 @@ const Home = () => {
           </button>
         )}
       </div>
-
-      <div className="flex justify-between mt-5">
+      <div className="flex justify-center mt-3">
+        <p className="text-[50px] font-extrabold">
+          <span className="text-[blue]">TOTAL</span>{" "}
+          <span className="text-[black]">:</span>{" "}
+          <span className="text-[red]">{remain}</span>
+        </p>
+      </div>
+      <div className="flex justify-between px-10">
         <NumberFormat value={hour} color="black" />
         <NumberFormat value={min} color="black" />
         <NumberFormat value={sec} color="black" />
-        <NumberFormat value={miliSec} color="black" />
-        <NumberFormat
-          value={startStatus || remain !== 0 ? remain : 0}
-          color="red"
-        />
+        <NumberFormat value={miliSec} color="blue" />
       </div>
 
       <div className="mt-5">
