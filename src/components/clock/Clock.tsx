@@ -5,7 +5,7 @@ const Home = () => {
   const [sec, setSec] = useState<number>(0);
   const [min, setMin] = useState<number>(0);
   const [hour, setHour] = useState<number>(0);
-  const [remain, setRemain] = useState<number>(14800);
+  const [remain, setRemain] = useState<number>(46800);
   const [count, setCount] = useState<number>(0);
   const [miliSec, setMiliSec] = useState<number>(0);
   const [startStatus, setStartStatus] = useState<Boolean>(false);
