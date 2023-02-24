@@ -2,7 +2,7 @@ import Home from "./components/clock";
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-black h-[100vh] pt-[150px]">
       <Home />
     </div>
   );

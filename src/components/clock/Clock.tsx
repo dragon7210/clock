@@ -59,8 +59,8 @@ const Home = () => {
     setRemain(0);
   };
   return (
-    <div className="w-[500px] mx-auto ">
-      <div className="flex justify-between mt-[150px]">
+    <div className="w-[600px] mx-auto bg-[white] p-10 rounded-md">
+      <div className="flex justify-between ">
         <input
           className="border-[2px] rounded-lg px-4 focus:outline-none w-[370px] text-[30px]"
           onChange={(e) => onChange(e)}
