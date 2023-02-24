@@ -7,16 +7,23 @@ const Home = () => {
   const [hour, setHour] = useState<number>(0);
   const [remain, setRemain] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
+  const [miliSec, setMiliSec] = useState<number>(0);
   const [startStatus, setStartStatus] = useState<Boolean>(false);
 
   const refRemain = useRef(0);
   const refCount = useRef(0);
+  const refMil = useRef(0);
   refRemain.current = remain;
   refCount.current = count;
+  refMil.current = miliSec;
 
   const updateTime = () => {
     setRemain(refRemain.current - 1);
     setCount(refCount.current + 1);
+  };
+
+  const updateMilSec = () => {
+    setMiliSec((refMil.current + 1) % 100);
   };
 
   useEffect(() => {
@@ -31,8 +38,10 @@ const Home = () => {
   useEffect(() => {
     if (remain >= 1 && startStatus) {
       const timer = setInterval(updateTime, 1000);
+      const milTimer = setInterval(updateMilSec, 10);
       return () => {
         clearInterval(timer);
+        clearInterval(milTimer);
       };
     }
     if (remain === 0) {
@@ -49,10 +58,10 @@ const Home = () => {
     setRemain(0);
   };
   return (
-    <div className="w-[420px] mx-auto caret-transparent">
+    <div className="w-[500px] mx-auto ">
       <div className="flex justify-between mt-[150px]">
         <input
-          className="border-[2px] rounded-lg px-4 focus:outline-none w-[300px]"
+          className="border-[2px] rounded-lg px-4 focus:outline-none w-[370px] text-[30px]"
           onChange={(e) => onChange(e)}
           value={!startStatus ? remain : ""}
           type="number"
@@ -72,6 +81,7 @@ const Home = () => {
         <NumberFormat value={hour} color="black" />
         <NumberFormat value={min} color="black" />
         <NumberFormat value={sec} color="black" />
+        <NumberFormat value={miliSec} color="black" />
         <NumberFormat
           value={startStatus || remain !== 0 ? remain : 0}
           color="red"
