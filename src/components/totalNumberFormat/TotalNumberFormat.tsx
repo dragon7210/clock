@@ -30,7 +30,7 @@ const TotalNumberFormat = ({ value }: Props) => {
     <div className="text-[50px] font-extrabold">
       <span className="text-[blue]">TOTAL</span>{" "}
       <span className="text-[black]">:</span>{" "}
-      <span className="text-[red] w-[160px] inline-block ">{formatValue}</span>
+      <span className="text-[red] w-[160px] inline-block ">{formatValue}s</span>
     </div>
   );
 };
