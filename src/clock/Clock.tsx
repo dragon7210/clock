@@ -60,6 +60,8 @@ const Clock = () => {
   const onChange = (e: any) => {
     if (!startStatus) {
       setRemain(e.target.value);
+    } else {
+      toast.warn("If you input the second value, please press the stop button");
     }
   };
 
