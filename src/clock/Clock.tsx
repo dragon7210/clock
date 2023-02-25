@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import NumberFormat from "../components/numberFormat";
 import TotalNumberFormat from "../components/totalNumberFormat";
+import { toast } from "react-toastify";
 
 const Clock = () => {
   const [sec, setSec] = useState<number>(0);
@@ -34,8 +35,13 @@ const Clock = () => {
   }, [count]);
 
   const start = () => {
-    startStatus ? setStartStatus(false) : setStartStatus(true);
+    if (remain.toString() === "0" || !remain.toString()) {
+      toast.error("Please input the value second");
+    } else {
+      startStatus ? setStartStatus(false) : setStartStatus(true);
+    }
   };
+
   useEffect(() => {
     if (remain >= 1 && startStatus) {
       const timer = setInterval(updateTime, 1000);
@@ -50,15 +56,18 @@ const Clock = () => {
       setCount(0);
     }
   }, [startStatus, refRemain, remain]);
+
   const onChange = (e: any) => {
     setRemain(e.target.value);
   };
+
   const refresh = () => {
     setCount(0);
     setStartStatus(false);
     setRemain(0);
     setMiliSec(0);
   };
+
   return (
     <div className="w-[600px] mx-auto bg-[white] p-10 rounded-md">
       <div className="flex justify-between ">
