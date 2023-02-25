@@ -58,7 +58,9 @@ const Clock = () => {
   }, [startStatus, refRemain, remain]);
 
   const onChange = (e: any) => {
-    setRemain(e.target.value);
+    if (!startStatus) {
+      setRemain(e.target.value);
+    }
   };
 
   const refresh = () => {
