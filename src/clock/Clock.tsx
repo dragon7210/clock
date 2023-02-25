@@ -36,7 +36,7 @@ const Clock = () => {
 
   const start = () => {
     if (remain.toString() === "0" || !remain.toString()) {
-      toast.error("Please input the value second");
+      toast.error("Please input the second value");
     } else {
       startStatus ? setStartStatus(false) : setStartStatus(true);
     }
