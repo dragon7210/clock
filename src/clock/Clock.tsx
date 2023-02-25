@@ -57,6 +57,7 @@ const Clock = () => {
     setCount(0);
     setStartStatus(false);
     setRemain(0);
+    setMiliSec(0);
   };
   return (
     <div className="w-[600px] mx-auto bg-[white] p-10 rounded-md">
