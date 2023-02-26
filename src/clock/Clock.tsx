@@ -81,15 +81,16 @@ const Clock = () => {
           value={!startStatus ? remain : ""}
           type="number"
         />
-        {startStatus ? (
-          <button className="bg-[blue] rounded-lg px-8 py-4" onClick={start}>
-            <p className="text-white font-bold text-[20px]">STOP</p>
-          </button>
-        ) : (
-          <button className="bg-[red] rounded-lg px-8 py-4" onClick={start}>
-            <p className="text-white font-bold text-[20px]">START</p>
-          </button>
-        )}
+        <button
+          className={
+            `rounded-lg px-8 py-4 ` + (startStatus ? "bg-[blue]" : "bg-[red]")
+          }
+          onClick={start}
+        >
+          <p className="text-white font-bold text-[20px]">
+            {startStatus ? "STOP" : "START"}
+          </p>
+        </button>
       </div>
       <div className="flex justify-center mt-3">
         <TotalNumberFormat value={remain} />
