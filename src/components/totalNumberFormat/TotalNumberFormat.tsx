@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import BetweenState from "../betweenState";
 
 type Props = {
   value: number;
+  state: boolean;
 };
 
-const TotalNumberFormat = ({ value }: Props) => {
+const TotalNumberFormat = ({ value, state }: Props) => {
   const [formatValue, setFormatValue] = useState<string>("");
   useEffect(() => {
     Format(value);
@@ -32,10 +34,10 @@ const TotalNumberFormat = ({ value }: Props) => {
     setFormatValue(newFormatValue);
   };
   return (
-    <div className="text-[50px] font-extrabold">
-      <span className="text-[blue]">TOTAL</span>{" "}
-      <span className="text-[black]">:</span>{" "}
-      <span className="text-[red] w-[180px] inline-block ">{formatValue}s</span>
+    <div className="text-[50px] font-extrabold flex justify-between">
+      <p className="text-[blue]">TOTAL</p>
+      <BetweenState state={state} color="green" />
+      <p className="text-[red] w-[180px] ">{formatValue}s</p>
     </div>
   );
 };

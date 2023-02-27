@@ -99,16 +99,16 @@ const Clock = () => {
           </p>
         </button>
       </div>
-      <div className="flex justify-center mt-3">
-        <TotalNumberFormat value={remain} />
+      <div className="mt-3 px-14">
+        <TotalNumberFormat value={remain} state={!state} />
       </div>
       <div className="flex justify-between px-10">
         <NumberFormat value={hour} color="black" />
-        <BetweenState state={state} />
+        <BetweenState state={state} color="blue" />
         <NumberFormat value={min} color="black" />
-        <BetweenState state={state} />
+        <BetweenState state={state} color="blue" />
         <NumberFormat value={sec} color="black" />
-        <BetweenState state={state} />
+        <BetweenState state={state} color="red" />
         <NumberFormat value={miliSec} color="blue" />
       </div>
 
