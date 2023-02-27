@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import NumberFormat from "../components/numberFormat";
 import TotalNumberFormat from "../components/totalNumberFormat";
+import BetweenState from "../components/betweenState";
 import { toast } from "react-toastify";
 
 const Clock = () => {
@@ -11,8 +12,7 @@ const Clock = () => {
   const [count, setCount] = useState<number>(0);
   const [miliSec, setMiliSec] = useState<number>(0);
   const [startStatus, setStartStatus] = useState<Boolean>(false);
-  const [state, setState] = useState<boolean>(false);
-
+  const [state, setState] = useState<boolean>(true);
   const refRemain = useRef(0);
   const refCount = useRef(0);
   const refMil = useRef(0);
@@ -104,17 +104,11 @@ const Clock = () => {
       </div>
       <div className="flex justify-between px-10">
         <NumberFormat value={hour} color="black" />
-        <span className="text-[50px] font-extrabold text-[green]">
-          {state ? ":" : " "}
-        </span>
+        <BetweenState state={state} />
         <NumberFormat value={min} color="black" />
-        <span className="text-[50px] font-extrabold text-[green]">
-          {state ? ":" : " "}
-        </span>
+        <BetweenState state={state} />
         <NumberFormat value={sec} color="black" />
-        <span className="text-[50px] font-extrabold text-[green]">
-          {state ? ":" : " "}
-        </span>
+        <BetweenState state={state} />
         <NumberFormat value={miliSec} color="blue" />
       </div>
 
