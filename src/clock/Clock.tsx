@@ -11,10 +11,12 @@ const Clock = () => {
   const [count, setCount] = useState<number>(0);
   const [miliSec, setMiliSec] = useState<number>(0);
   const [startStatus, setStartStatus] = useState<Boolean>(false);
+  const [state, setState] = useState<boolean>(false);
 
   const refRemain = useRef(0);
   const refCount = useRef(0);
   const refMil = useRef(0);
+
   refRemain.current = remain;
   refCount.current = count;
   refMil.current = miliSec;
@@ -46,16 +48,21 @@ const Clock = () => {
     if (remain >= 1 && startStatus) {
       const timer = setInterval(updateTime, 1000);
       const milTimer = setInterval(updateMilSec, 10);
+      const stateTimer = setInterval(() => {
+        state ? setState(false) : setState(true);
+      }, 1000);
+
       return () => {
         clearInterval(timer);
         clearInterval(milTimer);
+        clearInterval(stateTimer);
       };
     }
     if (remain === 0) {
       setStartStatus(false);
       setCount(0);
     }
-  }, [startStatus, refRemain, remain]);
+  }, [startStatus, refRemain, remain, state]);
 
   const onChange = (e: any) => {
     if (!startStatus) {
@@ -97,8 +104,17 @@ const Clock = () => {
       </div>
       <div className="flex justify-between px-10">
         <NumberFormat value={hour} color="black" />
+        <span className="text-[50px] font-extrabold text-[green]">
+          {state ? ":" : " "}
+        </span>
         <NumberFormat value={min} color="black" />
+        <span className="text-[50px] font-extrabold text-[green]">
+          {state ? ":" : " "}
+        </span>
         <NumberFormat value={sec} color="black" />
+        <span className="text-[50px] font-extrabold text-[green]">
+          {state ? ":" : " "}
+        </span>
         <NumberFormat value={miliSec} color="blue" />
       </div>
 
